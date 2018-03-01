@@ -1,0 +1,19 @@
+{
+  "name": "cs-546-lab-4",
+  "version": "1.0.0",
+  "description": "lab 4 for CS 546",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": {
+    "firstName": "John",
+    "lastName": "Hrabar",
+    "CWID": "10409311"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.0.2",
+    "uuid": "^3.2.1"
+  }
+}
