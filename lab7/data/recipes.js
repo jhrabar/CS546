@@ -1,5 +1,5 @@
 const mongoCollections = require("../config/mongoCollections");
-const recipes = mongoCollections.recipes;
+let recipes = mongoCollections.lab7recipes;
 const uuid = require("uuid/v4");
 
 
