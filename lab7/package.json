@@ -1,0 +1,21 @@
+{
+  "name": "cs-546-lab-7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": {
+  	"firstname": "John",
+  	"lastname": "Hrabar",
+  	"CWID": "10409311"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongodb": "^3.0.4",
+    "uuid": "^3.2.1"
+  }
+}
