@@ -1,11 +1,11 @@
 const mongoCollections = require("../config/mongoCollections");
-let recipes = mongoCollections.lab7recipes;
+const lab7recipes = mongoCollections.lab7recipes;
 const uuid = require("uuid/v4");
 
 
 async function getAllRecipes() {
   try {
-    let recipes = await recipes();
+    const recipes = await lab7recipes();
     let arrayRecipes = await recipes.find({}).toArray();
     let finalArray = [];
     for(let i = 0; i < arrayRecipes.length; i++){
@@ -22,7 +22,7 @@ async function getRecipeByID(id) {
     if(typeof id !== 'string'){
       throw Error("id is invalid");
     }
-    let recipes = await recipes();
+    let recipes = await lab7recipes();
     let recipe = await recipes.findOne({_id: id});
     return recipe;
   }
@@ -57,11 +57,11 @@ async function postRecipe(newRecipe){
     })
     let object ={
       _id: uuid(),
-      title: title,
-      ingredients: ingredients,
-      steps: steps
+      title: newRecipe.title,
+      ingredients: newRecipe.ingredients,
+      steps: newRecipe.steps
     }
-    let recipes = await recipes();
+    let recipes = await lab7recipes();
     await recipes.insertOne(object);
     return await recipes.findOne({_id: object._id});
   } catch(error){
@@ -102,7 +102,7 @@ async function putRecipe(id, updatedRecipe){
     if(typeof id !== 'string'){
       throw Error("id is invalid");
     }
-    let recipes = await recipes();
+    let recipes = await lab7recipes();
 
     updatedRecipe["_id"] = id;
     const update = await recipes.replaceOne({_id: id}, updatedRecipe, true);
@@ -150,7 +150,7 @@ async function patchRecipe(id, updatedRecipe){
     if(typeof id !== 'string'){
       throw Error("id is invalid");
     }
-    let recipes = await recipes();
+    let recipes = await lab7recipes();
 
     const update = await recipes.findOneAndUpdate({_id: id}, { $set: toUpdate});
     return await recipes.findOne({_id: id});
@@ -165,7 +165,7 @@ async function removeRecipe(id){
       throw Error("id is not valid");
     }
 
-    let recipes = await recipes();
+    let recipes = await lab7recipes();
     await recipes.deleteOne({_id: id});
   } catch(error){
     console.log(error.message);

@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const data = require("../data");
 const recipeData = data.recipes;
+const bodyparser = require('body-parser');
+
 
 router.get("/:id", async (req, res) => {
   try {
@@ -24,7 +26,8 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    let recipe = await recipeData.postRecipe(req.body);
+    recipeBody = req.body;
+    let recipe = await recipeData.postRecipe(recipeBody);
     res.json(recipe);
   } catch(e){
     res.status(500).send();
