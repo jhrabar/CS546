@@ -7,9 +7,10 @@ const bodyparser = require('body-parser');
 
 router.get("/:id", async (req, res) => {
   try {
-    const recipe = await recipeData.getRecipeById(req.params.id);
+    const recipe = await recipeData.getRecipeByID(req.params.id);
     res.json(recipe);
   } catch (e) {
+    console.log(e.message);
     res.status(404).json({ message: "not found!" });
   }
 });
@@ -26,7 +27,7 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    recipeBody = req.body;
+    let recipeBody = req.body;
     let recipe = await recipeData.postRecipe(recipeBody);
     res.json(recipe);
   } catch(e){
@@ -45,7 +46,7 @@ router.put("/:id", async (req, res) => {
 
 router.patch("/:id", async (req, res) => {
   try {
-    let updatedRecipe = await recipeData.postRecipe(req.params.id, req.body);
+    let updatedRecipe = await recipeData.patchRecipe(req.params.id, req.body);
     res.json(updatedRecipe);
   } catch(e){
     res.status(400).json(err);

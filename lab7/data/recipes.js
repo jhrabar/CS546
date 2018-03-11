@@ -117,6 +117,7 @@ async function patchRecipe(id, updatedRecipe){
     let toUpdate = {};
     if(updatedRecipe.title){
       if(typeof updatedRecipe.title !== "string"){
+        console.log(updateRecipe.title);
         throw Error("Title is not valid");
     }
     toUpdate.title = updatedRecipe.title;
