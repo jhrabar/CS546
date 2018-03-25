@@ -1,0 +1,18 @@
+{
+	"name": "cs-546-lab8",
+	"version": "1.0.0",
+	"description": "Lab 8 for CS 546",
+	"scripts": {
+		"start": "node app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "John Hrabar",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.18.2",
+		"express": "^4.16.2",
+		"express-handlebars": "^3.0.0",
+		"morgan": "^1.9.0"
+	}
+}
